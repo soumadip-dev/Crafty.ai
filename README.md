@@ -1,104 +1,105 @@
 <h1 align="center">
   <br>
-  Crafty.ai
+  Crafty.ai ✨
   <br>
 </h1>
 
-<div align="center">
-  <img src="https://skillicons.dev/icons?i=react,tailwind,nodejs,express,postgres,github" alt="Tech Stack" width="250">
-</div>
-
 <p align="center">
-  An AI-powered SaaS platform for creative and productivity tools.
+  An AI-powered SaaS platform offering creative and productivity tools.
 </p>
 
 <div align="center">
   <img src="https://github.com/soumadip-dev/Crafty.ai-PERN/blob/main/client/src/assets/SS.png" alt="Crafty.ai screenshot" width="900">
 </div>
 
-## Live:
+## 🌐 Live Demo
 
 [crafty.ai](https://crafty-ai.vercel.app/)
 
 ## 🌟 Features
 
-- **Article Generator** – Generate articles from titles
-- **Blog Title Generator** – Create engaging blog titles
-- **AI Image Generator** – Generate images from text prompts
-- **Background Remover** – Remove image backgrounds
-- **Image Object Remover** – Remove objects from images
-- **Resume Analyzer** – Analyze and suggest resume improvements
+- **📝 Article Generator** – Generate full articles from titles
+- **💡 Blog Title Generator** – Create engaging blog titles
+- **🖼 AI Image Generator** – Generate images from text prompts
+- **🖌 Background Remover** – Remove image backgrounds easily
+- **❌ Image Object Remover** – Remove unwanted objects from images
+- **📄 Resume Analyzer** – Analyze and suggest resume improvements
 
-## 🛠 Tech Stack
+## ⚙️ Tech Stack
 
-- **Frontend**: React.js, Tailwind CSS
-- **Backend**: Node.js, Express.js
-- **AI Services**: Gemini API, ClipDrop API
-- **Storage**: Cloudinary
-- **Authentication**: Clerk
-- **Database**: Neon (Postgres)
+- **🎨 Frontend**: React.js, Tailwind CSS
+- **🚀 Backend**: Node.js, Express.js
+- **🤖 AI Services**: Gemini API, ClipDrop API
+- **💾 Storage**: Cloudinary
+- **🔐 Authentication**: Clerk
+- **🗄 Database**: MongoDB, Mongoose
 
 ---
 
-## 🛠️ Installation
+## 🛠️ Installation & Setup
 
 ### Prerequisites
 
-- Node.js (v18+)
+- Node.js (v18 or higher)
 - npm or yarn
+- MongoDB Atlas account (or local MongoDB instance)
 
 ### Setup
 
 1. **Clone the repository**
 
-   ```bash
-   git clone https://github.com/soumadip-dev/Crafty.ai.git
-   cd Crafty.ai
-   ```
+```bash
+git clone https://github.com/soumadip-dev/Crafty.ai-MERN.git
+cd Crafty.ai-MERN
+```
 
 2. **Frontend Setup**
 
-   ```bash
-   cd client
-   npm install
-   ```
+```bash
+cd client
+npm install
+```
 
-   Create `.env`:
+Create a `.env` file in the `client` directory:
 
-   ```
-   VITE_CLERK_PUBLISHABLE_KEY=your_key_here
-   VITE_BASE_URL=http://localhost:3000
-   ```
+```env
+VITE_CLERK_PUBLISHABLE_KEY=your_key_here
+VITE_BASE_URL=http://localhost:3000
+```
 
 3. **Backend Setup**
 
-   ```bash
-   cd ../server
-   npm install
-   ```
+```bash
+cd ../server
+npm install
+```
 
-   Create `.env`:
+Create a `.env` file in the `server` directory:
 
-   ```
-   PORT=your_port
-   DATABASE_URL=your_postgres_url
-   CLERK_PUBLISHABLE_KEY=your_key_here
-   CLERK_SECRET_KEY=your_key_here
-   GEMINI_API_KEY=your_key_here
-   CLIPDROP_API_KEY=your_key_here
-   CLOUDINARY_CLOUD_NAME=your_cloud_name
-   CLOUDINARY_API_KEY=your_key_here
-   CLOUDINARY_API_SECRET=your_secret_here
-   ```
+```env
+PORT=8080
+DATABASE_URL=<YOUR_MONGODB_URI>
+CLERK_PUBLISHABLE_KEY=<YOUR_KEY_HERE>
+CLERK_SECRET_KEY=<YOUR_KEY_HERE>
+GEMINI_API_KEY=<YOUR_KEY_HERE>
+CLIPDROP_API_KEY=<YOUR_KEY_HERE>
+CLOUDINARY_CLOUD_NAME=<YOUR_CLOUD_NAME>
+CLOUDINARY_API_KEY=<YOUR_KEY_HERE>
+CLOUDINARY_API_SECRET=<YOUR_SECRET_HERE>
+```
 
-4. **Run Application**
-   - Frontend:
-     ```bash
-     cd client
-     npm run dev
-     ```
-   - Backend:
-     ```bash
-     cd server
-     npm run dev
-     ```
+4. **Run the Application** 🚀
+
+- **Frontend (Terminal 1)**:
+
+```bash
+cd client
+npm run dev
+```
+
+- **Backend (Terminal 2)**:
+
+```bash
+cd server
+npm run dev
+```
