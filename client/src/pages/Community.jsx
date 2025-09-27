@@ -113,7 +113,7 @@ const Community = () => {
                     <div className="flex justify-between items-center">
                       <div className="flex items-center gap-1">
                         <Heart
-                          onClick={() => imageLikeToggle(creation.id)}
+                          onClick={() => imageLikeToggle(creation._id)}
                           className={`w-5 h-5 transition-all hover:scale-110 cursor-pointer ${
                             creation.likes.includes(user?.id?.toString())
                               ? 'fill-red-500 text-red-500'

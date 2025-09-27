@@ -1,16 +1,16 @@
 {
   "type": "module",
-  "name": "server",
+  "name": "crafty-server",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
     "dev": "nodemon src/server.js",
     "start": "node src/server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Soumadip Majila",
   "license": "ISC",
-  "description": "",
+  "description": "An AI-powered SaaS platform for creative and productivity tools.",
   "dependencies": {
     "@clerk/express": "^1.7.5",
     "@neondatabase/serverless": "^1.0.1",
@@ -22,7 +22,8 @@
     "express": "^5.1.0",
     "multer": "^2.0.1",
     "openai": "^5.9.0",
-    "pdf-parse": "^1.1.1"
+    "pdf-parse": "^1.1.1",
+    "mongoose": "^8.17.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"

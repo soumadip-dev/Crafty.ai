@@ -1,7 +1,6 @@
 // Import necessary modules
 import dotenv from "dotenv";
 import { clerkClient } from "@clerk/express";
-import sql from "../configs/db.js";
 import { ApiError } from "../utils/api-error.js";
 import { ApiResponse } from "../utils/api-response.js";
 import OpenAI from "openai";
@@ -9,6 +8,7 @@ import axios from "axios";
 import { v2 as cloudinary } from "cloudinary";
 import fs from "fs";
 import pdf from "pdf-parse/lib/pdf-parse.js";
+import Creations from "../model/creations.js";
 
 // Load environment variables
 dotenv.config();
@@ -62,10 +62,12 @@ export const generateArticle = async (req, res) => {
     const content = response.choices[0].message.content;
 
     // Insert the article into the database
-    await sql`
-      INSERT INTO creations (user_id, prompt, content, type) 
-      VALUES (${userId}, ${prompt}, ${content}, 'article')
-    `;
+    await Creations.create({
+      user_id: userId,
+      prompt,
+      content,
+      type: "article",
+    });
 
     // Update the user's free usage
     if (plan !== "premium") {
@@ -147,10 +149,12 @@ export const generateBlogTitle = async (req, res) => {
     const content = response.choices[0].message.content;
 
     // Insert the blog title into the database
-    await sql`
-      INSERT INTO creations (user_id, prompt, content, type) 
-      VALUES (${userId}, ${prompt}, ${content}, 'blog-title')
-    `;
+    await Creations.create({
+      user_id: userId,
+      prompt,
+      content,
+      type: "blog-title",
+    });
 
     // Update the user's free usage
     if (plan !== "premium") {
@@ -235,10 +239,14 @@ export const generateImage = async (req, res) => {
     const { secure_url } = await cloudinary.uploader.upload(base64Image);
 
     // Insert the image into the database
-    await sql`
-      INSERT INTO creations (user_id, prompt, content, type,publish) 
-      VALUES (${userId}, ${prompt}, ${secure_url}, 'image',${publish ?? false})
-    `;
+    await Creations.create({
+      user_id: userId,
+      prompt,
+      content: secure_url,
+      type: "image",
+      publish: publish ?? false,
+    });
+
     // Return the generated image
     return res
       .status(200)
@@ -309,10 +317,12 @@ export const removeImageBackground = async (req, res) => {
     });
 
     // Insert the image into the database
-    await sql`
-      INSERT INTO creations (user_id, prompt, content, type) 
-      VALUES (${userId}, 'Remove Background From Image', ${secure_url}, 'image')
-    `;
+    await Creations.create({
+      user_id: userId,
+      prompt: "Remove Background From Image",
+      content: secure_url,
+      type: "image",
+    });
 
     // Return the background removed image
     return res
@@ -387,10 +397,12 @@ export const removeImageObject = async (req, res) => {
     });
 
     // Insert the image into the database
-    await sql`
-      INSERT INTO creations (user_id, prompt, content, type) 
-      VALUES (${userId}, ${`Removed ${object} From Image`}, ${imageUrl}, 'image')
-    `;
+    await Creations.create({
+      user_id: userId,
+      prompt: `Removed ${object} From Image`,
+      content: imageUrl,
+      type: "image",
+    });
 
     // Return the object removed image
     return res
@@ -492,10 +504,12 @@ ${pdfData.text}
     const content = response.choices[0].message.content;
 
     // Insert the resume into the database
-    await sql`
-        INSERT INTO creations (user_id, prompt, content, type) 
-        VALUES (${userId}, ${"Review the uploaded resume"}, ${content}, 'resume-review')
-      `;
+    await Creations.create({
+      user_id: userId,
+      prompt: "Review the uploaded resume",
+      content,
+      type: "resume-review",
+    });
 
     // TODO: Delete the uploaded file after processing
     // //  fs.unlinkSync(resume.path);

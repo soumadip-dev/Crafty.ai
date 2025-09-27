@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import aiRoutes from "./routes/ai.routes.js";
 import userRoutes from "./routes/user.routes.js";
 import connectCloudinary from "./configs/cloudinary.js";
+import { connectDB } from "./configs/db.js";
 
 const app = express();
 
@@ -40,6 +41,16 @@ app.use("/api/v1/ai", aiRoutes);
 app.use("/api/v1/user", userRoutes);
 
 // Start the server and listen on the specified port
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+const startServer = async () => {
+  try {
+    await connectDB();
+    app.listen(PORT, () => {
+      console.info(`✔️ Server is up and running on port: ${PORT}`);
+    });
+  } catch (error) {
+    console.error("❌ Failed to start server:", error.message);
+    process.exit(1);
+  }
+};
+
+startServer();
