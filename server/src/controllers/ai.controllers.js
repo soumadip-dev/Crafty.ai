@@ -1,5 +1,4 @@
 // Import necessary modules
-import dotenv from "dotenv";
 import { clerkClient } from "@clerk/express";
 import { ApiError } from "../utils/api-error.js";
 import { ApiResponse } from "../utils/api-response.js";
@@ -9,13 +8,11 @@ import { v2 as cloudinary } from "cloudinary";
 import fs from "fs";
 import pdf from "pdf-parse/lib/pdf-parse.js";
 import Creations from "../model/creations.js";
-
-// Load environment variables
-dotenv.config();
+import { ENV } from "../configs/env.js";
 
 // Create an instance of the OpenAI API
 const AI = new OpenAI({
-  apiKey: process.env.GEMINI_API_KEY,
+  apiKey: ENV.GEMINI_API_KEY,
   baseURL: "https://generativelanguage.googleapis.com/v1beta/openai/",
 });
 
@@ -224,7 +221,7 @@ export const generateImage = async (req, res) => {
       formData,
       {
         headers: {
-          "x-api-key": process.env.CLIPDROP_API_KEY,
+          "x-api-key": ENV.CLIPDROP_API_KEY,
         },
         responseType: "arraybuffer",
       },

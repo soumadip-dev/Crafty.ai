@@ -1,0 +1,15 @@
+import dotenv from "dotenv";
+
+dotenv.config();
+
+export const ENV = {
+  PORT: process.env.PORT,
+  DATABASE_URL: process.env.DATABASE_URL,
+  CLERK_PUBLISHABLE_KEY: process.env.CLERK_PUBLISHABLE_KEY,
+  CLERK_SECRET_KEY: process.env.CLERK_PUBLISHABLE_KEY,
+  GEMINI_API_KEY: process.env.CLERK_PUBLISHABLE_KEY,
+  CLIPDROP_API_KEY: process.env.CLERK_PUBLISHABLE_KEY,
+  CLOUDINARY_CLOUD_NAME: process.env.CLERK_PUBLISHABLE_KEY,
+  CLOUDINARY_API_KEY: process.env.CLERK_PUBLISHABLE_KEY,
+  CLOUDINARY_API_SECRET: process.env.CLERK_PUBLISHABLE_KEY,
+};

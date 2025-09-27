@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import { clerkMiddleware, requireAuth } from "@clerk/express";
-import dotenv from "dotenv";
 import aiRoutes from "./routes/ai.routes.js";
 import userRoutes from "./routes/user.routes.js";
 import connectCloudinary from "./configs/cloudinary.js";
@@ -20,13 +19,8 @@ app.use(express.json());
 // Initialize Clerk Middleware
 app.use(clerkMiddleware());
 
-// Load environment variables from .env file
-dotenv.config({
-  path: "./.env",
-});
-
 // Set the port for the server
-const PORT = process.env.PORT || 8080;
+const PORT = ENV.PORT || 8080;
 
 // Define a route for the root URL
 app.get("/", (req, res) => {
