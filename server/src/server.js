@@ -5,6 +5,7 @@ import aiRoutes from "./routes/ai.routes.js";
 import userRoutes from "./routes/user.routes.js";
 import connectCloudinary from "./configs/cloudinary.js";
 import { connectDB } from "./configs/db.js";
+import { ENV } from "./configs/env.js";
 
 const app = express();
 
