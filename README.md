@@ -88,7 +88,7 @@ CLOUDINARY_API_KEY=<YOUR_KEY_HERE>
 CLOUDINARY_API_SECRET=<YOUR_SECRET_HERE>
 ```
 
-4. **Run the Application** 🚀
+4. **Run the Application** 
 
 - **Frontend (Terminal 1)**:
 
