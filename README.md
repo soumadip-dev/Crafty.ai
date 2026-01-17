@@ -9,14 +9,16 @@
 </p>
 
 <div align="center">
-  <img src="https://github.com/soumadip-dev/Crafty.ai-PERN/blob/main/client/src/assets/SS.png" alt="Crafty.ai screenshot" width="900">
+  <img src="./client/src/assets/SS.png" alt="Crafty.ai screenshot" width="900">
 </div>
 
-## 🌐 Live Demo
+---
+
+## 🌍 Live Demo:
 
 [crafty.ai](https://crafty-ai.vercel.app/)
 
-## 🌟 Features
+## 🔋 Features
 
 - **📝 Article Generator** – Generate full articles from titles
 - **💡 Blog Title Generator** – Create engaging blog titles
@@ -34,9 +36,7 @@
 - **🔐 Authentication**: Clerk
 - **🗄 Database**: MongoDB, Mongoose
 
----
-
-## 🛠️ Installation & Setup
+## 🤸 Installation
 
 ### Prerequisites
 
@@ -49,8 +49,8 @@
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/soumadip-dev/Crafty.ai-MERN.git
-cd Crafty.ai-MERN
+git clone https://github.com/soumadip-dev/Crafty.ai.git
+cd Crafty.ai
 ```
 
 2. **Frontend Setup**
@@ -88,7 +88,7 @@ CLOUDINARY_API_KEY=<YOUR_KEY_HERE>
 CLOUDINARY_API_SECRET=<YOUR_SECRET_HERE>
 ```
 
-4. **Run the Application** 
+4. **Run the Application**
 
 - **Frontend (Terminal 1)**:
 
